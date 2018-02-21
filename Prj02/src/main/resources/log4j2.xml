@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Configuration status="warn" name="MyApp" packages="">
+
+    <Appenders>
+        <File name="Duplicates" fileName="logs/duplicates.log">
+            <PatternLayout>
+                <!--<Pattern>%d %p %c{1.} [%t] %m%n</Pattern>-->
+            </PatternLayout>
+        </File>
+        <File name="Names" fileName="logs/names.log">
+            <PatternLayout>
+                <!--<Pattern>%d %p %c{1.} [%t] %m%n</Pattern>-->
+            </PatternLayout>
+        </File>
+    </Appenders>
+
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="Duplicates"/>
+        </Root>
+        <Logger name="Duplicates" level="info" additivity="false">
+            <AppenderRef ref="Duplicates" level="INFO"/>
+        </Logger>
+        <Logger name="Names" level="info" additivity="false">
+            <AppenderRef ref="Names" level="INFO"/>
+        </Logger>
+    </Loggers>
+</Configuration>
